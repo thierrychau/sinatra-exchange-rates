@@ -2,6 +2,6 @@
 
 <ul>
   <% @list_currency.each do |currency| %>
-  <li>Convert 1 <%= currency %> to...<li>
+  <li><a href="/<%= currency %>">Convert 1 <%= currency %> to...</a></li>
   <% end %>
 </ul>
