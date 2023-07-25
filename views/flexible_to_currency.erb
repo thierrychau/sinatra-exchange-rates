@@ -2,4 +2,4 @@
 
 <p>1 <%= params.fetch(:from_currency) %> equals <%= @rate %> <%= params.fetch(:to_currency) %>.</p>
 
-<p>Go <a href="/">back</a>.</p>
+<p>Go <a href="/<%= params.fetch(:from_currency) %>">back</a>.</p>
