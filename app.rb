@@ -17,12 +17,22 @@ end
 
 get("/") do
   @list_currency = list_currency
-  
+
   erb(:currency_pairs)
 end
 
-get("/:user_currency") do
+get("/:from_currency") do
   @list_currency = list_currency
 
-  erb(:flexible_from)
+  erb(:flexible_from_currency)
+end
+
+get("/:from_currency/:to_currency") do
+  currency_from_to_url = "https://api.exchangerate.host/convert?from=#{params.fetch("from_currency")}&to=#{params.fetch("to_currency")}"
+  raw_currency_from_to = HTTP.get(currency_from_to_url)
+  parsed_currency_from_to = JSON.parse(raw_currency_from_to)
+
+  @rate = parsed_currency_from_to.fetch("info").fetch("rate")
+
+  erb(:flexible_to_currency)
 end
