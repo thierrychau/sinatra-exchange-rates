@@ -1,0 +1,9 @@
+<h1>Convert <%= params.fetch(:user_currency) %></h1>
+
+<p>Go <a href="/">back</a>.</p>
+
+<ul>
+  <% @list_currency.each do |currency| %>
+  <li><a href="/<%= currency %>">Convert 1 <%= params.fetch(:user_currency) %> to <%= currency %>...</a></li>
+  <% end %>
+</ul>
