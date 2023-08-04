@@ -9,12 +9,7 @@ def fetch_symbols
   parsed_exchangerate = JSON.parse(raw_exchangerate)
 
   symbols_hash = parsed_exchangerate.fetch("symbols")
-
-  list_symbols = []
-
-  symbols_hash.each do |currency_symbol, currency_hash|
-    list_symbols.push(currency_symbol)
-  end
+  list_symbols = symbols_hash.keys
 
   return list_symbols
 end
